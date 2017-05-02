@@ -16,11 +16,15 @@ public class LibraryDAO {
 	
 	private void fillLibrary() {
 		this.library.addToLibrary("eka", new Book("eka kirja"));
+		this.library.addToLibrary("ekaa", new Book("ekaa kirja"));
 		this.library.addToLibrary("toka", new Book("toka kirja"));
 	}
 
 	public Book getBookByBookName(String name) {
-		return this.library.getBookByName(name);
+		if(this.library.getBooks().containsKey(name)) {
+			return this.library.getBookByName(name);			
+		}
+		return null;
 	}
 
 	public Map<String,Book> getAllBooks() {

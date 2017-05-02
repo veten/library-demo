@@ -28,9 +28,9 @@ $(function () {
                 },
                 dataType: "text",
                 success: function(data){
-                    if (value==$(that).val()) {
-                    	console.log(data);
-                    	$('.book-name').append(data);
+                    if (value==$(that).val() && data != null) {
+                    	console.log(JSON.parse(data));
+                    	$('.book-name').append(JSON.parse(data).name + "<br/>");
                     }
                 }
             });
