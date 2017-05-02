@@ -2,21 +2,34 @@ package com.example.library;
 
 public class Book {
 
-	private String name;
+	private long id;
+	private String title;
 	private String author;
 	private String preview;
 	private String description;
 	
-	public Book(String name) {
-		this.name = name;
+	public Book(long id, String title, String author, String preview, String description) {
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.preview = preview;
+		this.description = description;
 	}
 
-	public String getName() {
-		return name;
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getAuthor() {
@@ -45,6 +58,8 @@ public class Book {
 	
 	@Override
 	public String toString() {	
-		return "Book: " + this.name;
+		return String.format(
+                "Book[id=%d, title='%s', author='%s', preview='%s', description='%s']",
+                this.id, this.title, this.author, this.preview, this.description);
 	}
 }
