@@ -1,39 +1,32 @@
-/*$(document).ready(function() {
-    $.ajax({
-        url: "/books"
-    }).then(function(data) {
-    	console.log('data: ', data);
-        $('.book1-name').append(data.eka.name);
-        $('.book2-name').append(data.toka.name);
-    });
-});*/
+$(document).ready(function() {
+	$.ajax({
+		url : "/books"
+	}).then(function(data) {
+		console.log('All books: ', data);
+	});
 
-var searchRequest = null;
+	$.ajax({
+		type: "GET",
+        url: "/author",
+        data: {
+            'author' : 'Stephen King'
+        },
+        dataType: "text",
+		author : 'Stephen King',
+	}).then(function(data) {
+		console.log('Books by author(Stephen King) ', data);
+	});
 
-$(function () {
-    var minlength = 1;
+	$.ajax({
+		type: "GET",
+        url: "/title",
+        data: {
+            'title' : 'Carrie'
+        },
+        dataType: "text",
+	}).then(function(data) {
+		console.log('Books by title(Carrie): ', data);
+	});
 
-    $("#search_book").keyup(function () {
-        var that = this,
-        value = $(this).val();
-
-        if (value.length >= minlength ) {
-            if (searchRequest != null) 
-                searchRequest.abort();
-            searchRequest = $.ajax({
-                type: "GET",
-                url: "/book",
-                data: {
-                    'name' : value
-                },
-                dataType: "text",
-                success: function(data){
-                    if (value==$(that).val() && data != null) {
-                    	console.log(JSON.parse(data));
-                    	$('.book-name').append(JSON.parse(data).name + "<br/>");
-                    }
-                }
-            });
-        }
-    });
+	
 });

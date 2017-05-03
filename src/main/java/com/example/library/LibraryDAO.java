@@ -1,6 +1,6 @@
 package com.example.library;
 
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -8,27 +8,31 @@ import org.springframework.stereotype.Component;
 public class LibraryDAO {
 
 	private Library library;
+	private InMemoryDB db;
 	
 	public LibraryDAO() {
+//		this.db = new InMemoryDB();
 		this.library = new Library();
 		fillLibrary();
 	}
 	
 	private void fillLibrary() {
-//		this.library.addToLibrary("eka", new Book("eka kirja"));
-//		this.library.addToLibrary("ekaa", new Book("ekaa kirja"));
-//		this.library.addToLibrary("toka", new Book("toka kirja"));
+		this.library.addBookToLibrary(new Book(1, "On Writing","Stephen King","http://books.google.fi/books?id=d999Z2KbZJYC&printsec=frontcover&dq=Stephen+King&hl=&cd=1&source=gbs_api","The author shares his insights into the craft of writing and offers a humorous perspective on his own experience as a writer."));
+		this.library.addBookToLibrary(new Book(2, "Carrie","Stephen King","http://books.google.fi/books?id=FNxGvn1SCVMC&printsec=frontcover&dq=Stephen+King&hl=&cd=2&source=gbs_api","Stephen King's legendary debut, about a teenage outcast and the revenge she enacts on her classmates. Carrie White may be picked on by her classmates, but she has a gift."));
+		this.library.addBookToLibrary(new Book(3, "Kolmas kirja","kuka lie","linkki","kuvaus"));
 	}
 
-	public Book getBookByBookName(String name) {
-		if(this.library.getBooks().containsKey(name)) {
-			return this.library.getBookByName(name);			
-		}
-		return null;
+	public List<Book> getBooksByTitle(String title) {
+		return this.library.getBooksByTitle(title);
 	}
 
-	public Map<String,Book> getAllBooks() {
-		return this.library.getBooks();
+	public List<Book> getBooksByAuthor(String author) {
+		return this.library.getBooksByAuthor(author);
+	}
+
+	
+	public List<Book> getAllBooks() {
+		return this.library.getListOfBooks();
 	}
 
 }

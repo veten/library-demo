@@ -1,5 +1,6 @@
 package com.example.library;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +13,19 @@ public class LibraryRestController {
 
 	@Autowired
 	private LibraryService service;
-	
-	@RequestMapping("/book")
-    public Book book(@RequestParam(value="name") String name) {
-        return service.getBook(name);
-    }
-	
+
+	@RequestMapping("/author")
+	public List<Book> byAuthor(@RequestParam(value = "author") String author) {
+		return service.getBooksByAuthor(author);
+	}
+
+	@RequestMapping("/title")
+	public List<Book> byTitle(@RequestParam(value = "title") String title) {
+		return service.getBooksByTitle(title);
+	}
+
 	@RequestMapping("/books")
-    public Map<String,Book> library() {
-        return service.getBooks();
-    }
+	public List<Book> library() {
+		return service.getBooks();
+	}
 }
