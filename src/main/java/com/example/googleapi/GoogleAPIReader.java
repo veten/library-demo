@@ -5,16 +5,12 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.json.*;
 
 @Component
 public class GoogleAPIReader {
@@ -34,12 +30,8 @@ public class GoogleAPIReader {
 			try {
 				response = convertToResponseObject(executeQuery(query));
 			} catch (GoogleApiException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-//			System.out.println("resp.getItems.size: " + response.getItems().size());
-//			System.out.println("resp.getItemsFirst: " + response.getItems().get(0).getVolumeInfo().getDescription());
-		
 		return response;
 	}
 
@@ -64,8 +56,6 @@ public class GoogleAPIReader {
 			System.out.println("Could not execute " + query + " on GoogleApi : ");
 			throw new GoogleApiException(e.getMessage());
 		}
-//		System.out.println("json from exec: " + json);
-
 		return json;
 	}
 
