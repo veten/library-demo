@@ -10,17 +10,9 @@ public class LibraryService {
 
 	@Autowired
 	private LibraryDAO libraryDAO;
-	
-	public List<Book> getBooksByTitle(String title) {
-		return libraryDAO.getBooksByTitle(title);
-	}
 
-	public List<Book> getBooksByAuthor(String author) {
-		return libraryDAO.getBooksByAuthor(author);
-	}
-	
-	public List<Book> getBooks() {
-		return libraryDAO.getAllBooks();
+	public List<LibraryItem> getBooks(String title, String author) {
+		return libraryDAO.getBooks(title, author);
 	}
 
 }
