@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.googleapi.LibraryItem;
+
 @RestController
 public class LibraryRestController {
 
@@ -14,7 +16,7 @@ public class LibraryRestController {
 	private LibraryService service;
 
 	@RequestMapping("/books")
-	public List<LibraryItem> byBoth(@RequestParam(value = "title", required = false) String title,
+	public List<LibraryItem> books(@RequestParam(value = "title", required = false) String title,
 			@RequestParam(value = "author", required = false) String author) {
 		return service.getBooks(title, author);
 	}

@@ -2,7 +2,6 @@ package com.example.googleapi;
 
 import java.util.List;
 
-import com.example.library.LibraryItem;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

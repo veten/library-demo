@@ -1,4 +1,4 @@
-package com.example.library;
+package com.example.googleapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

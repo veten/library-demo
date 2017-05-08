@@ -24,14 +24,21 @@ public class GoogleAPIReader {
 		this.jsonMapper = new ObjectMapper();
 	}
 
-
+	/**
+	 * Send a query to the GoogleApi.
+	 * 
+	 * @param query
+	 * 
+	 * @return selected fields from query response as Java Object
+	 * 
+	 */
 	public GoogleApiResponse getGoogleApiResponse(String query) {
 		GoogleApiResponse response = null;
-			try {
-				response = convertToResponseObject(executeQuery(query));
-			} catch (GoogleApiException e) {
-				e.printStackTrace();
-			}
+		try {
+			response = convertToResponseObject(executeQuery(query));
+		} catch (GoogleApiException e) {
+			e.printStackTrace();
+		}
 		return response;
 	}
 
@@ -39,6 +46,8 @@ public class GoogleAPIReader {
 	 * Send a query to the GoogleApi.
 	 * 
 	 * @param query
+	 * 
+	 * @return query response as String
 	 * 
 	 */
 	private String executeQuery(String query) throws GoogleApiException {
@@ -59,6 +68,14 @@ public class GoogleAPIReader {
 		return json;
 	}
 
+	/**
+	 * Convert String formed json to Java Object.
+	 * 
+	 * @param responseFromServer
+	 * 
+	 * @return Java Object containing selected fields from json
+	 * 
+	 */
 	private GoogleApiResponse convertToResponseObject(String responseFromServer) throws GoogleApiException {
 		GoogleApiResponse response;
 		try {

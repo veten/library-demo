@@ -27,14 +27,10 @@ function getResult() {
 						authors += ', ';
 					}
 				});
-				var img = (s.volumeInfo.imageLinks != null) ? s.volumeInfo.imageLinks.thumbnail : ''; 
-				var str = '<div style="clear:left;"><img src="'
-						+ img
-						+ '" style="float:left;margin-right:1%;margin-bottom:1%;"><h2>'
-						+ (index+1) + '. ' + s.volumeInfo.title + '</h2>'
-						+ '<p><b>by ' + authors + '</b></p>' 
-						+ '<p>' + s.volumeInfo.description + ' <a href="' + s.volumeInfo.previewLink
-						+ '" style="text-decoration:none;">More info...</a></p></div>';
+				var img = (s.volumeInfo.imageLinks != null) ? '<img src="' + s.volumeInfo.imageLinks.thumbnail + '" >' : ''; 
+				var str = '<div id="resultItem">' + img + '<h2>' + (index+1) + '. ' + s.volumeInfo.title + '</h2>'
+						+ '<p><b>by ' + authors + '</b></p>' + '<p>' + s.volumeInfo.description + ' <a href="' 
+						+ s.volumeInfo.previewLink	+ '">More info...</a></p></div>';
 				$('#results').append(str);
 			});
 			$('#results').append('</div>');

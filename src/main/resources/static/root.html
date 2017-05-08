@@ -3,16 +3,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Search books</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script src="js/library.js"></script>
 	</head>
 	<body>
 		<h3>Search books</h3>
+		<div id="form">
 			Title: <input type="text" id="title">
-  			Author: <input type="text" id="author" value="Stephen King">
-  			<button  onClick="getResult();">Search</button>
-		<div id="count"></div>
+  			Author: <input type="text" id="author">
+ 			<button id="search" onClick="getResult();">Search</button>
+ 		</div>
+		<div id="count"><h3>Books found 0:</h3></div>
 		<div id="results"></div>
 	</body>
 </html>

@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+button {
+	background-color: lightblue;
+	width: 10%;	
+}
+
+button:hover { 
+    background-color: #7fcaff;
+}
+
+img {
+	float: left;
+	margin-right: 1%;
+	margin-bottom: 1%;
+}
+
+a {
+	text-decoration: none;
+}
+
+#resultItem {
+	clear: left;
+	width: 50%;
+}
